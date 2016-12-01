@@ -1,38 +1,79 @@
 html {
-  text-size-adjust: 100%;
   height: 100%;
 }
 
 body {
-  margin: 0;
-  font: 16px / 1 sans-serif;
-  background-color: rgb(54, 199, 231);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  background: linear-gradient(rgb(198, 118, 184), rgb(134, 209, 238));
 }
 
-figure.h1 {
-  text-align: center;
+main {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+main img {
+  position: absolute;
+  top: 0;
+  animation-duration: 400ms;
+  animation-name: popIn;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+  }
+
+  50% {
+    transform: scale(0.75, 1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+button {
   position: relative;
-  top: 550px;
-  color: white;
-  border: 1px solid #333;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  border: 5px solid #0aad8e;
+  border-radius: 10px;
+  font: 24px/1em "Tisa Pro", sans-serif;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 0 #2cd0af;
+  background-color: #b0eee3;
+  box-shadow: 2px 2px 0 #0e7862;
+  transition: all 40ms linear;
+  animation-name: popIn;
+  animation-duration: 4s;
+
 }
 
-figure {
-  position: relative;
-  text-align: center;
-  top: 575px;
-  width: auto;
+button:focus {
+  outline: 0;
+  border-color: #22ccac;
 }
 
-.rainbutton {
-    background-color: rgb(54, 199, 231);
-    align-items: center;
-    position: relative;
+button:hover {
+  top: -2px;
+  left: -2px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #0e7862;
 }
 
-.rainbutton h1 {
-  color: white;
-  border: 1px solid;
-  border-radius: 15%;
-  width: 100%;
+button:active {
+  top: 2px;
+  left: 2px;
+  box-shadow: 0 0 1px #0e7862;
 }
