@@ -1,57 +1,41 @@
+// setting the frames per second
 const FPS = 30
-const SPEED = 2
 
+// The function adds a drop to the screen
 const makeItRain = () => {
+  // telling it to select the main tag
   const main = document.querySelector('main')
-  const drop = document.createElement('img')
-  drop.src = '/images/droplet.svg'
-  drop.height = 24
-  drop.main.left = Math.floor(Math.random() * document.body.clientWidth) + 'px'
-  drop.main.top = Math.floor(Math.random() * 20) + 'px'
+  // const drop will create an element in the figure tag
+  const drop = document.createElement('figure')
+  // telling the drop where top drop starting at 0px at the top.
+  drop.style.left = Math.floor(Math.random() *
+  document.body.clientWidth) + 'px'
+  drop.style.top = '0px'
+  //  append child creates the drop. im thinking in the main?
   main.appendChild(drop)
 }
-
+// The animate Function makes the drop actually move and animate
 const animate = () => {
+  // selecting the main function
   const main = document.querySelector('main')
+  // let the drop of main.children start from the top and parse int
+  // converts the first argument to a string and returns it as an integer
   for (let drop of main.children) {
-    const x = Number(drop.main.left.split('px')[4])
-    const y = Number(drop.main.top.split('px')[10])
-    const mod = x % 3
-    if (y < document.body.clientHeight) {
-      drop.main.top = (y + SPEED + mod) + 'px'
-    } else {
-      main.removeChild(drop) //
+    let top = parseInt(drop.style.top) + 2
+    if (top >= document.body.clientHeight) {
+      top = 0
     }
+    // telling the drop where to drop
+    drop.style.top = `${top}px`
   }
 }
-
- makeItRain()
-
-	if( i=1;i<Drop;i++) {
-    else (){
-
-	const dropLeft = randRange(0,1000);
-	const dropTop = randRange(-1000,1000);
-  $('main').append('<main class="drop" class="drop'+i+'"></main>');
-  $('main'+i).css('left',dropLeft);
-  $('main'+i).css('top',dropTop);
-}
-// Make it rain
-
-makeitRain()
-}
-}
-
-const main = () => {
+// main function is the first thing that gets loaded
+const main = () =>
+// query selecting a string called button in the document
   const button = document.querySelector('button')
-  button.addEventListener('click', (event) => {
-    event.preventDefault()
-    button.getElementById('click', (event).addEventListener('/images/droplet.svg'))
-    $('.drop').append('<style class="drop" id="drop'+i+'"></style>');
-  	$('.drop'+i).css('left',dropLeft);
-    $('.drop'+i).css('top',dropTop);
-    makeItRain()
-
+  // adding an event listener to the button and waiting for a click
+  // when a click happens make it rain
+  button.addEventListener('click', makeItRain) => {
   })
   window.setInterval(animate, 1000 / FPS)
 }
